@@ -10,7 +10,9 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.uv.dao.Departamento;
 import org.uv.dao.Empleado;
+import org.uv.dao.FactoryDAO;
 import org.uv.dao.HibernateUtil;
+import org.uv.dao.IDAOGeneral;
 
 /**
  *
@@ -23,8 +25,14 @@ public class DAOEmpresa {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        
-        SessionFactory session = HibernateUtil.getSessionFactory();
+        IDAOGeneral<Departamento, String> dao;
+
+    /**
+     * Creates a new instance of DepartamentoResource
+     */
+    
+        dao = FactoryDAO.create(FactoryDAO.Type.DEPARTAMENTO);
+        /*SessionFactory session = HibernateUtil.getSessionFactory();
         //Departamento dep = new Departamento();
         
         Session s = session.openSession();

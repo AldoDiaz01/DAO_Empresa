@@ -26,8 +26,8 @@ public class Empleado {
     private String direccion;
     @Column(name = "telefono")
     private String telefono;
-    @ManyToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "departamentos_clave")
+    @ManyToOne
+    @JoinColumn(name = "departamentos",referencedColumnName = "clave")
     private Departamento departamento;
 
     public Empleado() {}
